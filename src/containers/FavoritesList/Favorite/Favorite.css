@@ -1,0 +1,110 @@
+.Favorite{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 150px;
+    width: 150px;
+    border: 1px solid black;
+    align-items: center;
+    margin-left: 25px;
+    margin-top: 25px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.Link{
+    color: black;
+    text-decoration: none
+}
+
+.DarkFavorite{
+    border: 1px solid white;
+    background-color: #0006FF;
+    color: white;
+}
+
+.DarkFavorite:hover{
+    background-color:black;
+}
+
+.LightFavorite{
+    background-color: #82B8D9;
+    color: blue;
+    border: 1px solid blue;
+}
+
+.LightFavorite:hover{
+    background-color:white;
+}
+
+.Temp{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    justify-content: space-around;
+}
+
+.WeatherText{
+    font-weight: bold;
+}
+
+.Label{
+    text-align: center;
+}
+
+
+
+
+.containericons{
+    display: none;
+    position: absolute;
+    top: 151px;
+    width: 152px;
+}
+
+.Favorite:hover > .containericons{
+    display: block;
+}
+
+
+.infoIcon,.deleteIcon{
+    background-color: white;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+
+.infoIcon{
+    color: black;
+    border: 0.5px solid black;
+    margin-bottom: 2px;
+}
+
+.deleteIcon{
+    color: red;
+    border: 0.5px solid red;
+    cursor: pointer;
+}
+
+.iconDiv{
+    display: flex;
+    height: 25px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.DarkFavorite > .containericons{
+    background-color: aliceblue; 
+}
+
+.LightFavorite > .containericons{
+    background-color: blue; 
+}
+
+
+
+
+
+
+
+

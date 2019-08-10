@@ -1,0 +1,12 @@
+.FavoritesList{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.DarkFavoritesList{
+background-color: #000140;
+}
+
+.LightFavoritesList{
+    background-color:#367DD9;
+}
