@@ -27,7 +27,7 @@ export async function getFavoritesList(degreeType, favorites) {
             name: fav.name,
             temp: cuurentConditions.Value,
             weatherText: cuurentConditions.WeatherText,
-            unit: cuurentConditions.Unit
+            unit:"° " + cuurentConditions.Unit
         })
     }
     return arr;
@@ -87,7 +87,7 @@ export function getFavoriteListByDegreeType(degreeType,favorites){
     const arr = [...favorites];
     for (let i = 0; i < arr.length; i++) {
         arr[i].temp =  degreeType ? fToC(arr[i].temp ) : cToF(arr[i].temp );
-        arr[i].unit = degreeType ? 'C' : 'F';
+        arr[i].unit = degreeType ? '° C' : '° F';
     }
     return arr;
 }
@@ -102,13 +102,13 @@ export function getCuurentConditionsByDegreeType(degreeType, currentCondions) {
 function cToF(celsius) {
     const cTemp = celsius;
     const cToFahr = cTemp * 9 / 5 + 32;
-    return Math.floor(cToFahr);
+    return Math.round( cToFahr * 10 ) / 10;
 }
 
 function fToC(fahrenheit) {
     const fTemp = fahrenheit;
     const fToCel = (fTemp - 32) * 5 / 9;
-    return Math.floor(fToCel);
+    return  Math.round( fToCel * 10 ) / 10;
 }
 
 
