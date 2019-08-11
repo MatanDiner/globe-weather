@@ -12,7 +12,8 @@ export const getCuurentConditions = async (degreeType, locationKey) => {
 
     const response = await fetch(`${Resources.CurrentConditionsUrl}/${locationKey}?apikey=${Resources.apiKey}`);
     const data = await response.json();
-    const { Value, Unit } = degreeType ? data["0"]["Temperature"]["Metric"] : data["0"]["Temperature"]["Imperial"];
+    let { Value, Unit } = degreeType ? data["0"]["Temperature"]["Metric"] : data["0"]["Temperature"]["Imperial"];
+    Value = Math.round(Value);
     const WeatherText = data["0"]["WeatherText"];
     return { Value, Unit, WeatherText }
 }
@@ -51,11 +52,11 @@ function getForecasts(degreeType, DailyForecasts) {
         daysArr.push({
             dayName: getDayName(df.Date),
             day: {
-                temp: degreeType ? fToC(df.Temperature.Maximum.Value) : df.Temperature.Maximum.Value,
+                temp: degreeType ? fToC(df.Temperature.Maximum.Value) : Math.round(df.Temperature.Maximum.Value),
                 weatherText: df.Day.IconPhrase
             },
             night: {
-                temp: degreeType ? fToC(df.Temperature.Minimum.Value) : df.Temperature.Minimum.Value,
+                temp: degreeType ? fToC(df.Temperature.Minimum.Value) : Math.round(df.Temperature.Minimum.Value),
                 weatherText: df.Night.IconPhrase
             },
             unit: degreeType ? 'C' : 'F'
@@ -102,13 +103,13 @@ export function getCuurentConditionsByDegreeType(degreeType, currentCondions) {
 function cToF(celsius) {
     const cTemp = celsius;
     const cToFahr = cTemp * 9 / 5 + 32;
-    return Math.round( cToFahr * 10 ) / 10;
+    return Math.round( cToFahr);
 }
 
 function fToC(fahrenheit) {
     const fTemp = fahrenheit;
     const fToCel = (fTemp - 32) * 5 / 9;
-    return  Math.round( fToCel * 10 ) / 10;
+    return Math.round( fToCel) ;
 }
 
 
