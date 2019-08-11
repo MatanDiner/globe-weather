@@ -17,7 +17,7 @@ const Favorite = props => {
         <div className={classesArr.join(" ")}>
             <div className={classes.Temp}>
                 <label className={classes.Label}>{props.name}</label>
-                <label className={classes.Label}>{props.temp}° {props.unit}</label>
+                <label className={classes.Label}>{props.temp}{props.unit}</label>
             </div>
             <div>
                 <label className={classes.WeatherText}>{props.weatherText}</label>
