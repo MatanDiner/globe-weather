@@ -26,8 +26,13 @@
     height: 25px;
 }
 
+.favoriteIcon:hover,.noFavoriteIcon:hover{
+  cursor: pointer;
+}
+
 .favoriteIcon{
     color: red;
+    
 }
 
 
