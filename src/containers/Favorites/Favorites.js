@@ -42,7 +42,7 @@ const Favorites = props => {
                 .catch(err => {
                     setErrorState({
                         error: true,
-                        errorMassage: `An error occurred while trying to get Your favorits List.`
+                        errorMassage: `An error occurred while trying to get the current conditions of Your favorits List.`
                     })
                 })
         }
@@ -87,9 +87,9 @@ const Favorites = props => {
     }
 
     let favoriteList = <Spinner />
-    if (favoritesState.favoritesList) {
+    if (favoritesState.favoritesList || props.favorites) {
         favoriteList = <FavoritesList
-            favoritesList={searchState.searchList || favoritesState.favoritesList}
+            favoritesList={searchState.searchList || favoritesState.favoritesList || props.favorites}
             removeFromFavorite={removeFromFavorite}
         />
     }
