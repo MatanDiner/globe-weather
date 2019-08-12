@@ -3,6 +3,13 @@
     margin-top: 30px;
 }
 
+@media(max-width:500px){
+    .favoriteList{
+        height: 640px;
+    }
+}
+
+
 .Favorites{
     width: 100%;
 }
