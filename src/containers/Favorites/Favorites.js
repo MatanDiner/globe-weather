@@ -86,7 +86,7 @@ const Favorites = props => {
             {errorState.errorMassage}</Modal>
     }
 
-    let favoriteList = <Spinner />
+    let favoriteList = <Spinner screenMode = {context.screenMode}/>
     if (favoritesState.favoritesList || props.favorites) {
         favoriteList = <FavoritesList
             favoritesList={searchState.searchList || favoritesState.favoritesList || props.favorites}
