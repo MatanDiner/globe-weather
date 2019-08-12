@@ -7,7 +7,7 @@ import { getCuurentConditions, getFiveDayForecast, getFiveDayForecastByDegreeTyp
 import FiveDaysForecast from '../FiveDaysForecast/FiveDaysForecast';
 import HeaderButtonsContext from '../../Contexts/headerButtonsContext';
 import Modal from '../../components/UI/Modal/Modal';
-
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 const Dashboard = props => {
 
@@ -110,10 +110,10 @@ const Dashboard = props => {
             {errorState.errorMassage}</Modal>
     }
 
-    return (
-
-
-        <div className={classesArr.join(" ")}>
+    let dashboard = <div className={classesArr.join(" ")}><Spinner screenMode = {context.screenMode}/></div>;
+    if (Object.entries(forecastsState.curentConditions).length > 0 && forecastsState.fiveDaysForecast.length > 0 && isFavoriteState.isFavorite !== null){
+        dashboard = (
+            <div className={classesArr.join(" ")}>
             {errorMassage}
             <div className={classes.CurrentCondition}>
                 <CurrentCondition
@@ -134,7 +134,11 @@ const Dashboard = props => {
                     fiveDayForecast={forecastsState.fiveDaysForecast} />
             </div>
         </div>
-    )
+        )
+    }
+
+    return dashboard;
+
 }
 
 
